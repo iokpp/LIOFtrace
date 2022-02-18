@@ -1,0 +1,54 @@
+# This is a configure file for the LIOFtrace-c.sh
+#
+export TRACE_POINTS
+
+#VFS trace points
+TRACE_POINTS=${TRACE_POINTS}" -e sys_enter_write"
+TRACE_POINTS=${TRACE_POINTS}" -e sys_enter_read"
+TRACE_POINTS=${TRACE_POINTS}" -e sys_exit_write"
+TRACE_POINTS=${TRACE_POINTS}" -e sys_exit_read"
+
+#EXT4 trace points
+#TRACE_POINTS=${TRACE_POINTS}" -e ext4_sync_file_enter"
+#TRACE_POINTS=${TRACE_POINTS}" -e ext4_direct_IO_enter"
+#TRACE_POINTS=${TRACE_POINTS}" -e ext4_direct_IO_exit"
+#TRACE_POINTS=${TRACE_POINTS}" -e ext4_sync_file_exit"
+#TRACE_POINTS=${TRACE_POINTS}" -e ext4_writepages"
+
+#Block trace points
+TRACE_POINTS=${TRACE_POINTS}" -e block_bio_remap"
+TRACE_POINTS=${TRACE_POINTS}" -e block_bio_queue"
+TRACE_POINTS=${TRACE_POINTS}" -e block_getrq"
+TRACE_POINTS=${TRACE_POINTS}" -e block_rq_issue"
+TRACE_POINTS=${TRACE_POINTS}" -e block_rq_insert"
+TRACE_POINTS=${TRACE_POINTS}" -e block_rq_complete"
+TRACE_POINTS=${TRACE_POINTS}" -e block_dirty_buffer"
+
+
+#NVMe
+TRACE_POINTS=${TRACE_POINTS}" -e nvme_async_event"
+TRACE_POINTS=${TRACE_POINTS}" -e nvme_complete_rq"
+TRACE_POINTS=${TRACE_POINTS}" -e nvme_setup_cmd"
+TRACE_POINTS=${TRACE_POINTS}" -e nvme_sq"
+
+#UFS LLD
+TRACE_POINTS=${TRACE_POINTS}" -e ufshcd_command"
+#TRACE_POINTS=${TRACE_POINTS}" -e ufshcd_upiu"
+
+#eMMC
+TRACE_POINTS=${TRACE_POINTS}" -e mmc_request_start"
+TRACE_POINTS=${TRACE_POINTS}" -e mmc_request_done"
+
+#SCSI trace points
+TRACE_POINTS=${TRACE_POINTS}" -e scsi_dispatch_cmd_start"
+TRACE_POINTS=${TRACE_POINTS}" -e scsi_dispatch_cmd_done"
+
+#HW IRQ trace points
+#TRACE_POINTS=${TRACE_POINTS}" -e irq_handler_entry"
+#TRACE_POINTS=${TRACE_POINTS}" -f ufshcd_intr"	#UFS IRQ
+#TRACE_POINTS=${TRACE_POINTS}" -f scsi_queue_rq"
+#TRACE_POINTS=${TRACE_POINTS}" -f scsi_dma_map"
+#TRACE_POINTS=${TRACE_POINTS}" -f scsi_dma_unmap"
+
+#SW IRQ trace points
+#TRACE_POINTS=${TRACE_POINTS}" -f scsi_softirq_done"
